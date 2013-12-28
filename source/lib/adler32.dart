@@ -18,8 +18,8 @@ class Adler32 implements Hash
     if (_digestCalled)
       throw new StateError(_ADD_AFTER_FINALIZE);
 
-    int a = _hash & 0xffff;
-    int b = (_hash >> 16) & 0xffff;    
+    int a = _hash & _MASK_16;
+    int b = (_hash >> 16) & _MASK_16;    
     
     data.forEach((f) { 
       a = (a + f) % _BASE;

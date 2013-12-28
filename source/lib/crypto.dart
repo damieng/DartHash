@@ -3,6 +3,7 @@ library damieng.crypto;
 import 'package:crypto/crypto.dart';
 
 part 'adler32.dart';
+part 'crc8.dart';
 part 'crc16.dart';
 part 'crc32.dart';
 part 'crc64.dart';

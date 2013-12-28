@@ -16,7 +16,7 @@ class ELF32 implements Hash
     
     data.forEach((f) { 
       _hash = (_hash << 4) + f;
-      int work = _hash & 0xf0000000;
+      int work = _hash & 0xF0000000;
       _hash ^= work >> 24;
       _hash &= ~work;
     });

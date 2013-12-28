@@ -51,7 +51,7 @@ class CRC16 implements Hash
       throw new StateError(_ADD_AFTER_FINALIZE);
     
     data.forEach((f) { 
-      _hash = (_hash >> 8) ^ _table[(_hash ^ f) & 0xFF] & 0xFFFF;
+      _hash = (_hash >> 8) ^ _table[(_hash ^ f) & _MASK_8] & _MASK_16;
     });
   }
 

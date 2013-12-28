@@ -39,6 +39,7 @@ void calculateHashes(List<int> source) {
   var hashers = { 'SHA1'   : new SHA1(),
                   'SHA256' : new SHA256(),
                   'MD5'    : new MD5(),
+                  'CRC8'   : new CRC8(),
                   'CRC16'  : new CRC16(),
                   'CRC32'  : new CRC32(),  
                   'CRC64'  : new CRC64(),

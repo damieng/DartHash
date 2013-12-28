@@ -5,8 +5,8 @@ part of damieng.crypto;
 // http://en.wikipedia.org/wiki/Cyclic_redundancy_check
 class CRC32 implements Hash
 {
-  static const int DefaultPolynomial = 0xedb88320; // Reversed format
-  static const int DefaultSeed = 0xffffffff;       // We don't invert seed
+  static const int DefaultPolynomial = 0xEDB88320; // Reversed format
+  static const int DefaultSeed = 0xFFFFFFFF;       // We don't invert seed
   static List<int> _defaultTable;
   
   int _hash, _seed, _polynomial;
@@ -23,7 +23,7 @@ class CRC32 implements Hash
     if (_finalHash != null)
       throw new StateError(_ADD_AFTER_FINALIZE);
 
-    data.forEach((f) => _hash = ((_hash >> 8) ^ _table[(f ^ _hash) & _MASK_8]) & _MASK_32);    
+    data.forEach((f) => _hash = ((_hash >> 8) ^ _table[(f ^ _hash) & _MASK_8]) & _MASK_32);
   }
 
   int get blockSize => 4;
