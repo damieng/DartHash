@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>HashTool</title>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+  <h1>HashTool</h1>
+  
+  <p>A simple multi-algorithm hashing tool written in Dart.</p>
+
+  <h3>Source</h3>
+  <div class="form">
+    <div class="form-group">
+      <label for="textInput">
+        Text
+      </label>
+      <textarea id="textInput" class="form-control"></textarea>      
+    </div>
+
+    <div class="form-group">
+      <label for="fileInput">
+        File
+      </label>
+      <input id="fileInput" type="file" class="form-control">
+    </div>
+    
+    <button id="hashButton" class="btn btn-primary">Hash</button>
+  </div>
+
+  <div id="results" class="hidden">
+    <h3>Hashes</h3>
+    <p id="message" class="alert alert-success" />
+  
+    <table class="table table-condensed table-hover">
+      <thead>
+        <tr>
+          <th>Algorithm</th>
+          <th>Hash</th>
+        </tr>
+      <thead>
+      <tbody id="output" />
+    </table>
+  </div>
+</div>
+<script type="application/dart" src="hashtool.dart"></script>
+<script src="packages/browser/dart.js"></script>
+</body>
+</html>

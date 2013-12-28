@@ -1,0 +1,5 @@
+name: HashTool
+description: A simple tool for calculating hashes.
+dependencies:
+  browser: any
+  crypto: any
