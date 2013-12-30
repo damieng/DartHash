@@ -3,10 +3,10 @@ library damieng.crypto;
 import 'package:crypto/crypto.dart';
 
 part 'adler32.dart';
-part 'crc8.dart';
-part 'crc16.dart';
-part 'crc32.dart';
-part 'crc64.dart';
+part 'crc/crc8.dart';
+part 'crc/crc16.dart';
+part 'crc/crc32.dart';
+part 'crc/crc64.dart';
 part 'elf32.dart';
 
 const _MASK_8 = 0xff;
