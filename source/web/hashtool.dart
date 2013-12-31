@@ -38,6 +38,7 @@ void hashPressed(MouseEvent event) {
 void calculateHashes(List<int> source) {
   var hashers = { 'SHA1'   : new SHA1(),
                   'SHA256' : new SHA256(),
+                  'MD2'    : new MD2(),
                   'MD5'    : new MD5(),
                   'CRC8'   : new CRC8(),
                   'CRC16'  : new CRC16(),

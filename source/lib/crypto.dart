@@ -8,6 +8,7 @@ part 'crc/crc16.dart';
 part 'crc/crc32.dart';
 part 'crc/crc64.dart';
 part 'elf32.dart';
+part 'md/md2.dart';
 
 const _MASK_8 = 0xff;
 const _MASK_16 = 0xffff;
