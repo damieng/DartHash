@@ -40,14 +40,15 @@ class MD2 implements Hash
   ]; 
     
   List<int> _pendingData = [];
-  final List<int> _x = [];
-  final List<int> _c = [];
+  final List<int> _x = new List<int>(48);
+  final List<int> _c = new List<int>(_chunkSize);
   int _l = 0;
   bool _digestCalled = false;
+  static const int _chunkSize = 16;
   
   MD2() {
-    _x.fillRange(0, 48, 0);
-    _c.fillRange(0, 16, 0);
+    _x.fillRange(0, _x.length, 0);
+    _c.fillRange(0, _c.length, 0);
   }
   
   MD2 newInstance() => new MD2();
@@ -74,31 +75,31 @@ class MD2 implements Hash
   
   List<int> _resultAsBytes() {
     var result = [];
-    result.addAll(_x.take(16));
+    result.addAll(_x.take(_chunkSize));
     return result;
   }
   
   int get blockSize => 16;
 
   void _iterate() {
-    while (_pendingData.length >= blockSize) {
-      _updateHash(_pendingData.take(blockSize));
-      _pendingData = _pendingData.sublist(blockSize);
+    while (_pendingData.length >= _chunkSize) {
+      _updateHash(_pendingData.take(_chunkSize));
+      _pendingData = _pendingData.sublist(_chunkSize);
     }
   }
   
   void _finalizeData() { 
-    int pending = _pendingData.length % blockSize;
-    int pad = 16 - pending;
+    int pending = _pendingData.length % _chunkSize;
+    int pad = _chunkSize - pending;
     for (int i = 0; i < pad; i ++)
       _pendingData.add(pad);
     _iterate();
     
-    _updateHash(_c.take(16));
+    _updateHash(_c.take(_chunkSize));
   }
     
   void _updateHash(Iterable<int> m) {
-    assert(m.length == blockSize);
+    assert(m.length == _chunkSize);
 
     int tL = _l;
     int i = 0;
